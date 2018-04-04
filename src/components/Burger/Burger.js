@@ -3,11 +3,16 @@ import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 import classes from './Burger.css';
 
 const burger = (props) => {
+  const transformedIngredients = Object.keys(props.ingredients)
+    .map((ingKey)=> {
+      return [...Array(props.ingredients[ingKey])].map((_, ingredients) => {
+        return <BurgerIngredient key={ingKey + 1} type={ingKey} />
+      });
+    });
   return (
     <div className={classes.Burger}>
       <BurgerIngredient type="bread-top"/>
-      <BurgerIngredient type="cheese"/>
-      <BurgerIngredient type="meat"/>
+      { transformedIngredients }
       <BurgerIngredient type="bread-bottom"/>
     </div>
   );
