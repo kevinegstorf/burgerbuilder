@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ENDPOINT from './endpoint';
+import ENDPOINT from './endpoints';
 
 const instance = axios.create({
     baseURL: ENDPOINT
